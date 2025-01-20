@@ -2,8 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { beforeAll, test, expect } = require("@jest/globals");
-const { describe } = require("yargs");
+const { game } = require("../game");
 
 beforeAll(() => {
     let fs = require("fs");
