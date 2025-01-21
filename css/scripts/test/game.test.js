@@ -29,4 +29,7 @@ describe("game object contains correct keys", () => {
     test("choices contain correct ids", () => {
         expect(game.choices).toEqual(["button1", "button2", "button3", "button4"]);
     });
+    test("should set game score to zero", () => {
+        expect("score" in game).toEqual(0);
+    });
 })
