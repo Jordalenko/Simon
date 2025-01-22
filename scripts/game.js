@@ -10,6 +10,18 @@ function newGame() {
     game.currentGame = [];
     game.playerMoves = [];
     game.score = 0;
+
+    for (let circle of document.getElementsByClassName("circle")) {
+        if (circle.getAttribute("data-listener") !== "true") {
+            circle.addEventListener("click", (e) => {
+                let move = e.target.getAttribute("id");
+                lightsOn(move);
+                game.playerMoves.push(move);
+                playerTurn();
+            });
+            circle.setAttribute("data-listener", "true");
+        }
+    }
     showScore();
     addTurn();
 }
@@ -33,8 +45,8 @@ function showTurns() {
 
 function lightsOn(circ) {
     document.getElementById(circ).classList.add("light");
-    setTimeout(function () {
-        document.getElementById(circ).classList.remove("light");
+    setTimeout (() => {
+        document.getElementById(circ).classList.remove("light")
     }, 400);
 }
 
